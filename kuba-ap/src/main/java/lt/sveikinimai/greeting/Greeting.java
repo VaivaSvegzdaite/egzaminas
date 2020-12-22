@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -29,6 +30,7 @@ public class Greeting {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
 	@Column(unique = true)
+	@Size(max = 3)
 	private String text;
 	@Column
 	private String imageUrl;

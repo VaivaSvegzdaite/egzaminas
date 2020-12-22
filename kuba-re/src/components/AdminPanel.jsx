@@ -51,7 +51,8 @@ export default class AdminPanel extends Component {
                 <th scope="col">Text</th>
                 <th scope="col">mp3File</th>
                 <th scope="col">Name</th>
-                <th scope="col">Data</th>
+                <th scope="col">Date</th>
+                <th scope="col">GreetingType</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
               </tr>

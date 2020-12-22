@@ -8,10 +8,12 @@ class ProductAdministrationComponent extends Component {
     super(props);
     this.state = {
       id: 0,
-      name: '',
-      logo: '',
-      category: '',
-      size: '',
+      text: '',
+      imageUrl: '',
+      mp3File: '',
+      nameg: '',
+      date: '',
+      greetingType: '',
     };
   }
 
@@ -23,38 +25,44 @@ class ProductAdministrationComponent extends Component {
   updateProduct = (e) => {
     e.preventDefault();
     axios
-      .put(`${apiEndpoint}/api/studios/${this.state.id}`, {
+      .put(`${apiEndpoint}/api/greetings/${this.state.id}`, {
         id: this.state.id,
-        name: this.state.name,
-        logo: this.state.logo,
-        category: this.state.category,
-        size: this.state.size,
+        text: this.state.text,
+        imageUrl: this.state.imageUrl,
+        mp3File: this.state.mp3File,
+        nameg: this.state.nameg,
+        date: this.state.date,
+        greetingType: this.state.greetingType,
       })
-      .then(() => this.props.history.push('/admin/studios'));
+      .then(() => this.props.history.push('/admin/greetings'));
   };
 
   createProduct = (e) => {
     axios
-      .post(`${apiEndpoint}/api/studios`, {
+      .post(`${apiEndpoint}/api/greetings`, {
         id: this.state.id,
-        name: e.target.name.value,
-        logo: e.target.logo.value,
-        category: e.target.category.value,
-        size: e.target.size.value,
+        text: e.target.text,
+        imageUrl: e.target.imageUrl,
+        mp3File: e.target.mp3File,
+        nameg: e.target.nameg,
+        date: e.target.date,
+        greetingType: e.targer.greetingType,
       })
-      .then(() => this.props.history.push('/admin/studios'));
+      .then(() => this.props.history.push('/admin/greetings'));
   };
 
   componentDidMount() {
     axios
-      .get(`${apiEndpoint}/api/studios/${this.props.match.params.id}`)
+      .get(`${apiEndpoint}/api/greetings/${this.props.match.params.id}`)
       .then((response) => {
         this.setState({
           id: response.data.id,
-          name: response.data.name,
-          logo: response.data.logo,
-          category: response.data.category,
-          size: response.data.size,
+          text: response.data.text,
+          imageUrl: response.data.imageUrl,
+          mp3File: response.data.mp3File,
+          nameg: response.data.nameg,
+          date: response.data.date,
+          greetingType: response.data.greetingType,
         });
       })
       .catch((err) => {
@@ -70,10 +78,12 @@ class ProductAdministrationComponent extends Component {
       this.createProduct();
     }
     this.setState({
-      name: '',
-      logo: '',
-      category: '',
-      size: '',
+      text: '',
+      imageUrl: '',
+      mp3File: '',
+      nameg: '',
+      date: '',
+      greetingType: '',
     });
   };
 

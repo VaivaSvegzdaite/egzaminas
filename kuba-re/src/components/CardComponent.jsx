@@ -8,7 +8,7 @@ const CardComponent = ({
   imageUrl,
   mp3File,
   nameg,
-  data,
+  date,
   greetingType,
 }) => {
   return (
@@ -22,7 +22,7 @@ const CardComponent = ({
         <p class="card-text">{text}</p>
         <p class="card-text">{mp3File}</p>
         <p class="card-text">{nameg}</p>
-        <p class="card-text">{data}</p>
+        <p class="card-text">{date}</p>
         <Link to={`greetings/${id}`} className="btn btn-primary">
           Details
         </Link>

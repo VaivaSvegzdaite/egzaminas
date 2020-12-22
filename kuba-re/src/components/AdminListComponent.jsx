@@ -18,7 +18,8 @@ const AdminListComponent = ({ id, deleteProduct, ...otherProps }) => {
         <td>{otherProps.text}</td>
         <td>{otherProps.mp3File}</td>
         <td>{otherProps.nameg}</td>
-        <td>{otherProps.data}</td>
+        <td>{otherProps.date}</td>
+        <td>{otherProps.greetingType}</td>
         <td></td>
         <Link
           className="text-decoration-none mr-3"
