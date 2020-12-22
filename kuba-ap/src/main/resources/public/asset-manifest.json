@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/kuba-ap/static/css/main.03276b69.chunk.css",
+    "main.js": "/kuba-ap/static/js/main.24e5bdb5.chunk.js",
+    "main.js.map": "/kuba-ap/static/js/main.24e5bdb5.chunk.js.map",
+    "runtime-main.js": "/kuba-ap/static/js/runtime-main.fd327b9b.js",
+    "runtime-main.js.map": "/kuba-ap/static/js/runtime-main.fd327b9b.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/kuba-ap/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.e989f288.chunk.js": "/kuba-ap/static/js/2.e989f288.chunk.js",
+    "static/js/2.e989f288.chunk.js.map": "/kuba-ap/static/js/2.e989f288.chunk.js.map",
+    "index.html": "/kuba-ap/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/kuba-ap/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.03276b69.chunk.css.map": "/kuba-ap/static/css/main.03276b69.chunk.css.map",
+    "static/js/2.e989f288.chunk.js.LICENSE.txt": "/kuba-ap/static/js/2.e989f288.chunk.js.LICENSE.txt",
+    "static/media/foto.d648cdd6.jpg": "/kuba-ap/static/media/foto.d648cdd6.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd327b9b.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.e989f288.chunk.js",
+    "static/css/main.03276b69.chunk.css",
+    "static/js/main.24e5bdb5.chunk.js"
+  ]
+}
