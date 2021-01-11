@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -16,39 +15,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import lt.sveikinimai.address.Address;
+import lt.sveikinimai.place.Place;
 
 @Entity
 public class Greeting {
 
-	@Column
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
-	@Column(unique = true)
-	@Size(max = 3)
+	@Size(min = 3)
 	private String text;
-	@Column
 	private String imageUrl;
-	@Column
 	private String mp3File;
-	@Column
 	private String nameg;
-	@Column
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
-	@Column
 	@Enumerated(EnumType.STRING)
 	private GreetingType greetingType;
 
 	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.DETACH }, fetch = FetchType.EAGER)
-	@JoinTable(name = "greeting_address", joinColumns = { @JoinColumn(name = "greeting_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "address_id") })
-	private List<Address> addresses = new ArrayList<>();
+	@JoinTable(name = "greeting_place", joinColumns = { @JoinColumn(name = "greeting_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "place_id") })
+	private List<Place> places = new ArrayList<>();
 
 	public Greeting(String text, String imageUrl, String mp3File, String nameg, Date date, GreetingType greetingType) {
 		super();
@@ -64,12 +56,12 @@ public class Greeting {
 		super();
 	}
 
-	public void addAddress(Address address) {
-		this.addresses.add(address);
+	public void addPlace(Place place) {
+		this.places.add(place);
 	}
 
-	public void removeAddress(Address address) {
-		this.addresses.remove(address);
+	public void removePlace(Place place) {
+		this.places.remove(place);
 	}
 
 	public Long getId() {
@@ -100,8 +92,8 @@ public class Greeting {
 		return greetingType;
 	}
 
-	public List<Address> getAddresses() {
-		return addresses;
+	public List<Place> getPlaces() {
+		return places;
 	}
 
 	public void setId(Long id) {
@@ -132,8 +124,8 @@ public class Greeting {
 		this.greetingType = greetingType;
 	}
 
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
+	public void setPlaces(List<Place> places) {
+		this.places = places;
 	}
 
 }

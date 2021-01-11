@@ -17,7 +17,7 @@ export default class App extends Component {
           <Switch>
             <Route path="/" exact component={ListComponent} />
             <Route path="/greetings" exact component={ListComponent} />
-            <Route path="/addresses" exact component={UnderConstruction} />
+            <Route path="/places" exact component={UnderConstruction} />
             <Route path="/greetings/:id" exact component={DetailsPage} />
             <Route path="/admin" exact component={AdminPanel} />
             <Route
