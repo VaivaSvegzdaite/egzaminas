@@ -36,20 +36,21 @@ public class PlaceService {
 
 	@Transactional
 	public void create(CreatePlaceCommand c) {
-		placeRepository.save(new Place(c.getTitle(), c.getAddress(), c.getLogo(), c.getAddressType()));
+		placeRepository.save(new Place(c.getTitle(), c.getAddress(), c.getLogo(), c.getPlaceType()));
 	}
 
 	@Transactional
-	public void update(CreatePlaceCommand c, Long id) {
+	public void update(Long id, CreatePlaceCommand c) {
 		if (placeRepository.findById(id).isPresent()) {
 			Place a = placeRepository.findById(id).get();
 			a.setTitle(c.getTitle());
 			a.setAddress(c.getAddress());
 			a.setLogo(c.getLogo());
-			a.setAddressType(c.getAddressType());
+			a.setPlaceType(c.getPlaceType());
 			placeRepository.save(a);
 		}
 	}
+
 
 	@Transactional
 	public void deleteById(Long id) {
@@ -59,7 +60,6 @@ public class PlaceService {
 	@PostConstruct
 	public void init() {
 		LOGGER.info("Bean created, class:  " + getClass().getName() + ". Scope(default value): singleton");
-
 	}
 
 	@PreDestroy

@@ -6,6 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.transaction.Transactional;
 
+import lt.sveikinimai.place.Place;
+import lt.sveikinimai.place.PlaceRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,17 @@ public class GreetingService {
 	@Autowired
 	private GreetingRepository greetingRepository;
 
+	@Autowired
+	private PlaceRepository placeRepository;
+
 	@Transactional
 	public List<Greeting> getGreetings() {
 		return greetingRepository.findAll();
+	}
+
+	@Transactional
+	public void add(Greeting greeting) {
+		greetingRepository.save(greeting);
 	}
 
 	@Transactional
@@ -30,23 +40,15 @@ public class GreetingService {
 	}
 
 	@Transactional
-	public void create(CreateGreetingCommand c) {
-		greetingRepository.save(new Greeting(c.getText(), c.getImageUrl(), c.getMp3File(), c.getNameg(), c.getDate(),
-				c.getGreetingType()));
-	}
-
-	@Transactional
-	public void update(CreateGreetingCommand c, Long id) {
-		if (greetingRepository.findById(id).isPresent()) {
-			Greeting g = greetingRepository.findById(id).get();
-			g.setText(c.getText());
-			g.setImageUrl(c.getImageUrl());
-			g.setMp3File(c.getMp3File());
-			g.setNameg(c.getNameg());
-			g.setDate(c.getDate());
-			g.setGreetingType(c.getGreetingType());
-			greetingRepository.save(g);
-		}
+	public void update(Long id, CreateGreetingCommand c){
+		Greeting g = greetingRepository.findById(id).orElse(null);
+		g.setText(c.getText());
+		g.setImageUrl(c.getImageUrl());
+		g.setMp3File(c.getMp3File());
+		g.setNameg(c.getNameg());
+		g.setDate(c.getDate());
+		g.setGreetingType(c.getGreetingType());
+		greetingRepository.save(g);
 	}
 
 	@Transactional
@@ -57,11 +59,18 @@ public class GreetingService {
 	@PostConstruct
 	public void init() {
 		LOGGER.info("Bean created, class:  " + getClass().getName() + ". Scope(default value): singleton");
-
 	}
 
 	@PreDestroy
 	public void destroy() {
 		LOGGER.info("Bean destroyed, class:  " + getClass().getName() + ". Scope(default value): singleton");
+	}
+
+	@Transactional
+	public void connectGreetingAndPlace(Long greetingId, Long placeId) {
+		Greeting g = greetingRepository.getOne(greetingId);
+		Place p = placeRepository.getOne(placeId);
+		g.addPlace(p);
+		greetingRepository.save(g);
 	}
 }

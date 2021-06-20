@@ -6,12 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -38,30 +33,37 @@ public class GreetingController {
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	@ApiOperation(value = "Get greeting by ID", notes = "Returns a single greeting by ID")
-	public Greeting getGreetingById(@ApiParam(value = "greeting id", required = true) @Valid @PathVariable Long id) {
+	public Greeting getGreetingById(@ApiParam(value = "greeting id") @PathVariable Long id) {
 		return greetingService.getGreetingById(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiOperation(value = "Create greeting", notes = "Creates new  greeting")
-	public void createGreeting(
-			@ApiParam(value = "greeting Data", required = true) @Valid @RequestBody final CreateGreetingCommand c) {
-		greetingService.create(c);
+	public List<Greeting> addGreeting(
+			@ApiParam(value = "greeting Data") @RequestBody final CreateGreetingCommand c) {
+		greetingService.add(new Greeting(c.getText(), c.getImageUrl(), c.getMp3File(), c.getNameg(), c.getDate(),
+				c.getGreetingType()));
+		return greetingService.getGreetings();
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public void updateGreeting(@ApiParam(value = "updated greeting data", required = true) @Valid @PathVariable Long id,
+	public void updateGreeting(@ApiParam(value = "updated greeting data") @PathVariable Long id,
 			@RequestBody final CreateGreetingCommand c) {
-		greetingService.update(c, id);
+		greetingService.update(id, c);
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@ApiOperation(value = "Delete greeting", notes = "deletes greeting by id")
-	public void delete(@ApiParam(value = "greeting id", required = true) @PathVariable final Long id) {
+	public void delete(@ApiParam(value = "greeting id") @PathVariable final Long id) {
 		greetingService.deleteById(id);
+	}
+
+	@PostMapping("/{greetingId}/place/{placeId}")
+	public void connectGreetingAndPlace(@PathVariable final Long greetingId, @PathVariable final Long placeId){
+		greetingService.connectGreetingAndPlace(greetingId, placeId);
 	}
 
 }

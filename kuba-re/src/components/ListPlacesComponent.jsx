@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import apiEndpoint from '../configure';
-import CardComponent from '../components/CardComponent';
+import PlaceCardComponent from "./PlaceCardComponent";
 
-export default class ListComponent extends Component {
+export default class ListPlacesComponent extends Component {
     constructor() {
         super();
         this.state = {
-            greetings: [],
+            places: [],
         };
     }
 
     componentDidMount() {
         axios
-            .get(`${apiEndpoint}/api/greetings`)
+            .get(`${apiEndpoint}/api/places`)
             .then((prod) => {
-                this.setState({greetings: prod});
+                this.setState({ places: prod });
             })
             .catch((err) => {
                 console.log(err);
@@ -23,13 +23,14 @@ export default class ListComponent extends Component {
     }
 
     render() {
-        const {data} = this.state.greetings;
+        const { data } = this.state.places;
+        console.log(data)
         if (data) {
             return (
                 <div className="container-fluid mt-4">
                     <div className="row d-flex justify-content-center">
                         {data.map(({id, ...otherProps}) => (
-                            <CardComponent key={id} id={id} {...otherProps} />
+                            <PlaceCardComponent key={id} id={id} {...otherProps} />
                         ))}
                     </div>
                 </div>

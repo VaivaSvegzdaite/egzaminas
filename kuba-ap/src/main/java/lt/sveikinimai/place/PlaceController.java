@@ -21,47 +21,47 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "place")
 @RequestMapping(value = "/api/places")
 public class PlaceController {
+    @Autowired
+    private PlaceService placeService;
 
-	@Autowired
-	private PlaceService placeService;
+    @Autowired
+    public PlaceController(PlaceService placeService) {
+        this.placeService = placeService;
+    }
 
-	@Autowired
-	public PlaceController(PlaceService placeService) {
-		this.placeService = placeService;
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Get places", notes = "Returns all places")
+    public List<Place> getPlaces() {
+        return placeService.getPlaces();
+    }
 
-	@RequestMapping(method = RequestMethod.GET)
-	@ApiOperation(value = "Get places", notes = "Returns all places")
-	public List<Place> getPlaces() {
-		return placeService.getPlaces();
-	}
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    @ApiOperation(value = "Get place by ID", notes = "Returns a single place by ID")
+    public Place getPlaceById(@ApiParam(value = "place id") @PathVariable Long id) {
+        return placeService.getPlaceById(id);
+    }
 
-	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
-	@ApiOperation(value = "Get place by ID", notes = "Returns a single place by ID")
-	public Place getPlaceById(@ApiParam(value = "place id", required = true) @Valid @PathVariable Long id) {
-		return placeService.getPlaceById(id);
-	}
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "Create place", notes = "Creates new  place")
+    public void createPlace(
+            @ApiParam(value = "place Data") @RequestBody final CreatePlaceCommand p) {
+        placeService.create(p);
+    }
 
-	@RequestMapping(method = RequestMethod.POST)
-	@ResponseStatus(HttpStatus.CREATED)
-	@ApiOperation(value = "Create place", notes = "Creates new  place")
-	public void createPlace(
-			@ApiParam(value = "place Data", required = true) @Valid @RequestBody final CreatePlaceCommand c) {
-		placeService.create(c);
-	}
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public void updatePlace(@ApiParam(value = "updated place data") @PathVariable Long id,
+                            @RequestBody final CreatePlaceCommand c) {
+        placeService.update(id, c);
+    }
 
-	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-	@ResponseStatus(HttpStatus.OK)
-	public void updatePlace(@ApiParam(value = "updated place data", required = true) @Valid @PathVariable Long id,
-			@RequestBody final CreatePlaceCommand c) {
-		placeService.update(c, id);
-	}
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation(value = "Delete place", notes = "deletes place by id")
+    public void deletePlace(@ApiParam(value = "place id") @PathVariable final Long id) {
+        placeService.deleteById(id);
+    }
 
-	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@ApiOperation(value = "Delete place", notes = "deletes place by id")
-	public void deletePlace(@ApiParam(value = "place id", required = true) @PathVariable final Long id) {
-		placeService.deleteById(id);
-	}
 
 }
