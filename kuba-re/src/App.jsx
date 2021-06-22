@@ -17,6 +17,7 @@ export default class App extends Component {
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <NavBar/>
                     <Switch>
+                        <Route path="/" exact component={AdminPanel}/>
                         <Route path="/klientai/admin" exact component={AdminPanel}/>
                         <Route path="/inventorius" exact component={InventoriusComponent}/>
                         <Route path="/inventorius/admin" exact component={InventoriusFormComponent}/>

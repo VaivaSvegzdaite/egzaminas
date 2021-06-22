@@ -2,7 +2,7 @@ import React from 'react';
 import img from '../../img/no-invent.png';
 
 const InventoriusCardComponent = ({
-                                id, pavadinimas, svoris, regData
+                                id, pavadinimas, svoris, sektorius, regData
                             }) => {
     return (
         <div
@@ -13,6 +13,7 @@ const InventoriusCardComponent = ({
             <div className="card-body bg-light">
                 <h5 className="card-text bg-light">{pavadinimas}</h5>
                 <p className="card-title bg-light">Svoris: {svoris}</p>
+                <p className="card-title bg-light">Sektorius: {sektorius}</p>
                 <p className="card-text bg-light">Prekės registravimo data: {regData}</p>
             </div>
         </div>
