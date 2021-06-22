@@ -8,20 +8,20 @@ export default class DetailsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            greeting: null
+            klientai: null
         }
     }
 
     componentDidMount() {
         axios
-            .get(`${apiEndpoint}/api/greetings/${this.props.match.params.id}`)
-            .then((res) => this.setState({greeting: res.data}))
+            .get(`${apiEndpoint}/api/klientai/${this.props.match.params.id}`)
+            .then((res) => this.setState({klientai: res.data}))
             .catch((err) => console.log(err));
     }
 
     render() {
-        if (this.state.greeting !== null) {
-            const {id, ...otherProps} = this.state.greeting;
+        if (this.state.klientai !== null) {
+            const {id, ...otherProps} = this.state.klientai;
             return (
                 <div className="container-fluid mt-5">
                     <div className="col-5" key={id}>

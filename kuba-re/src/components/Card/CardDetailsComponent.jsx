@@ -1,18 +1,11 @@
 import {Link} from 'react-router-dom';
-import img from '../../img/greeting.jpg';
+import img from '../../img/no-img.png';
 
 const CardDetailsComponent = ({
-                                  id,
-                                  text,
-                                  imageUrl,
-                                  mp3File,
-                                  nameg,
-                                  date,
-                                  greetingType,
-                                  places
+                                  id, vardas, pavarde, dob, tel, tipas, inventorius
                               }) => {
     return (
-        <div className="card bg-light mb-3" style={{width: '35rem'}}>
+        <div className="card bg-light mb-3 border-0" style={{width: '35rem'}}>
             <div className="card-body">
                 <div className="row">
                     <div className="col-6">
@@ -20,29 +13,32 @@ const CardDetailsComponent = ({
                     </div>
                     <div className="col-sm-6">
                         <div className="card-body-right">
-                            <h5 className="card-title">{text} </h5>
-                            <p>Name: {nameg}</p>
-                            <p>Mp3File: n/a</p>
-                            <p className="card-text">Date and
-                                time: {date.toLocaleString().slice(0, 16).replace('T', ' ')}</p>
-                            <p>Greeting type: {greetingType}</p>
-                            <div>Greeting places: {(
-                                places.map(place => {
-                                    return <p key={place.id}>{place.title}</p>
+                            <h5 className="card-title">Kliento informacija:</h5>
+                            <p>Vardas: {vardas}</p>
+                            <p>Pavarde: {pavarde}</p>
+                            <p>Gimimo data: {dob}</p>
+                            <p className="card-text">Tel.: {tel}</p>
+                            <p>Kliento tipas: {tipas}</p>
+                            <div><span className="h5">Inventoriaus sąrašas:</span> {(
+                                inventorius.map(i => {
+                                    return <p key={i.id}>{i.pavadinimas}{' '}</p>
                                 })
                             )}</div>
                             <p>
                                 <Link
                                     className="btn btn-secondary mr-2"
-                                    to={`/admin/greetings/${id}`}
+                                    to={`/klientai/admin/${id}`}
                                 >
                                     {' '}
                                     Edit{' '}
                                 </Link>
-                                <Link to={`/greetings`} className="btn btn-primary mx-4">
+                                <Link to={`/klientai/admin`} className="btn btn-primary mx-4">
                                     Back
                                 </Link>
                             </p>
+                            <Link to={`/inventorius/admin`} className="btn btn-success">
+                                Pridėti inventorių
+                            </Link>
                         </div>
                     </div>
                 </div>

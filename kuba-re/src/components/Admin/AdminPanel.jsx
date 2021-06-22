@@ -11,7 +11,7 @@ export default class AdminPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            greetings: [],
+            klientai: [],
             modalVisibility: false,
         };
     }
@@ -20,29 +20,29 @@ export default class AdminPanel extends Component {
 
     componentDidMount() {
         axios
-            .get(`${apiEndpoint}/api/greetings`)
+            .get(`${apiEndpoint}/api/klientai`)
             .then((prod) => {
-                this.setState({greetings: prod});
+                this.setState({klientai: prod});
             })
             .catch((err) => {
                 console.log(err);
             });
     }
 
-    deleteGreeting = (e) => {
+    deleteKlientas = (e) => {
         swal({
-            text: "Ar tikrai norite ištrinti sveikinimą?",
+            text: "Ar tikrai norite ištrinti klientą?",
             buttons: ["Ne", "Taip"],
             dangerMode: true,
         }).then((actionConfirmed) => {
-            swal("Atlikta!", "Sveikinimas sėkmingai ištrintas!", "success");
+            swal("Atlikta!", "Klientas sėkmingai ištrintas!", "success");
             if (actionConfirmed) {
                 axios
-                    .delete(`${apiEndpoint}/api/greetings/${e.target.id}`)
+                    .delete(`${apiEndpoint}/api/klientai/${e.target.id}`)
                     .then((response) => {
 
-                        axios.get(`${apiEndpoint}/api/greetings`).then((prod) => {
-                            this.setState({greetings: prod});
+                        axios.get(`${apiEndpoint}/api/klientai`).then((prod) => {
+                            this.setState({klientai: prod});
                         });
                     }).catch(() => {
                 });
@@ -51,22 +51,23 @@ export default class AdminPanel extends Component {
     }
 
     render() {
-        const {data} = this.state.greetings;
+        const {data} = this.state.klientai;
         if (data) {
             return (
                 <div className="container mt-5">
-                    <Link to={`/admin/greetings/new`} className="btn btn-primary mb-5">
-                        Add new
+                    <Link to={`/klientai/admin/new`} className="btn btn-primary mb-5">
+                        Pridėti klienta
                     </Link>
                     <table className="table">
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Text</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">GreetingType</th>
+                            <th scope="col"></th>
+                            <th scope="col">Vardas</th>
+                            <th scope="col">Pavarde</th>
+                            <th scope="col">Telefonas</th>
+                            <th scope="col">Tipas</th>
+                            <th scope="col">Inventoriaus vnt.</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
@@ -76,7 +77,7 @@ export default class AdminPanel extends Component {
                                 key={id}
                                 id={id}
                                 {...otherProps}
-                                deleteGreeting={this.deleteGreeting}
+                                deleteKlientas={this.deleteKlientas}
                             />
                         ))}
                     </table>

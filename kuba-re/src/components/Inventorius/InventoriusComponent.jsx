@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import apiEndpoint from '../../configure';
-import PlaceCardComponent from "./PlaceCardComponent";
+import InventoriusCardComponent from "./InventoriusCardComponent";
 import Spinner from "../Utils/Spinner";
 
-export default class ListPlacesComponent extends Component {
+export default class InventoriusComponent extends Component {
     constructor() {
         super();
         this.state = {
-            places: [],
+            inventorius: [],
         };
     }
 
     componentDidMount() {
         axios
-            .get(`${apiEndpoint}/api/places`)
+            .get(`${apiEndpoint}/api/inventorius`)
             .then((prod) => {
-                this.setState({places: prod});
+                this.setState({inventorius: prod});
             })
             .catch((err) => {
                 console.log(err);
@@ -24,7 +24,7 @@ export default class ListPlacesComponent extends Component {
     }
 
     render() {
-        const {data} = this.state.places;
+        const {data} = this.state.inventorius;
         if (!data) {
             return <Spinner/>
         }
@@ -35,7 +35,7 @@ export default class ListPlacesComponent extends Component {
             <div className="container-fluid mt-4">
                 <div className="row d-flex justify-content-center">
                     {data.map(({id, ...otherProps}) => (
-                        <PlaceCardComponent key={id} id={id} {...otherProps} />
+                        <InventoriusCardComponent key={id} id={id} {...otherProps} />
                     ))}
                 </div>
             </div>

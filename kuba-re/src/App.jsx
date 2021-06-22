@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import ListComponent from './components/Card/ListComponent';
 import AdminPanel from './components/Admin/AdminPanel';
 import Administration from './components/Form/Administration';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar';
 import DetailsPage from './components/Card/DetailsPage';
 import NoMatch from "./components/Utils/NoMatch";
-import ListPlacesComponent from "./components/Places/ListPlacesComponent";
+import UnderConstruction from "./components/Utils/UnderConstruction";
+import InventoriusComponent from "./components/Inventorius/InventoriusComponent";
+import InventoriusFormComponent from "./components/Inventorius/InventoriusFormComponent";
 
 export default class App extends Component {
     render() {
@@ -16,18 +17,18 @@ export default class App extends Component {
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <NavBar/>
                     <Switch>
-                        <Route path="/" exact component={ListComponent}/>
-                        <Route path="/greetings" exact component={ListComponent}/>
-                        <Route path="/places" exact component={ListPlacesComponent}/>
-                        <Route path="/greetings/:id" exact component={DetailsPage}/>
-                        <Route path="/admin/greetings" exact component={AdminPanel}/>
+                        <Route path="/klientai/admin" exact component={AdminPanel}/>
+                        <Route path="/inventorius" exact component={InventoriusComponent}/>
+                        <Route path="/inventorius/admin" exact component={InventoriusFormComponent}/>
+                        <Route path="/ataskaitos" exact component={UnderConstruction}/>
+                        <Route path="/klientai/:id" exact component={DetailsPage}/>
                         <Route
-                            path="/admin/greetings/new"
+                            path="/klientai/admin/new"
                             exact
                             component={Administration}
                         />
                         <Route
-                            path="/admin/greetings/:id"
+                            path="/klientai/admin/:id"
                             exact
                             component={Administration}
                         />

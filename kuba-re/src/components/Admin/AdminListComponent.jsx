@@ -1,43 +1,49 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import img from '../../img/greeting.jpg';
+import img from '../../img/no-img.png';
 
 
-const AdminListComponent = ({id, deleteGreeting, ...otherProps}) => {
+const AdminListComponent = ({id, deleteKlientas, ...otherProps}) => {
     return (
         <tbody>
         <tr>
             <th scope="row">{id}</th>
             <td>
                 <img
-                    // src={{imageUrl: otherProps.img}}
                     src={img}
                     className="card-img-top"
                     style={{width: 50, height: 50}}
-                    alt={otherProps.text}
+                    alt={otherProps.vardas}
                 />
             </td>
-            <td>{otherProps.text}</td>
-            <td>{otherProps.nameg}</td>
-            <td>{otherProps.date}</td>
-            <td>{otherProps.greetingType}</td>
+            <td>{otherProps.vardas}</td>
+            <td>{otherProps.pavarde}</td>
+            <td>{otherProps.tel}</td>
+            <td>{otherProps.tipas}</td>
             <td></td>
             <td>
                 <Link
-                    className="btn btn-secondary btn-sm mr-2"
-                    to={`/admin/greetings/${id}`}
+                    className="btn btn-primary btn-sm mr-2"
+                    to={`/klientai/${id}`}
                 >
                     {' '}
-                    Edit{' '}
+                    Daugiau{' '}
+                </Link>
+                <Link
+                    className="btn btn-secondary btn-sm mr-2"
+                    to={`/klientai/admin/${id}`}
+                >
+                    {' '}
+                    Redaguoti{' '}
                 </Link>
                 <button
                     className="btn btn-danger btn-sm"
                     data-toggle="modal"
                     data-target="#myModal"
-                    onClick={deleteGreeting}
+                    onClick={deleteKlientas}
                     id={id}
                 >
-                    Delete
+                    Ištrinti
                 </button>
             </td>
         </tr>

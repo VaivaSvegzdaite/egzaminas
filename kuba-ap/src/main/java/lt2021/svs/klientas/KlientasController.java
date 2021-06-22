@@ -34,6 +34,7 @@ public class KlientasController {
         return klientasService.getKlientai();
     }
 
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
     public void updateKlientas(@PathVariable Long id,
                                @RequestBody final CreateKlientasCommand c) {
         klientasService.update(id, c);

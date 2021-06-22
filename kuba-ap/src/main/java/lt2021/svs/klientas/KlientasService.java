@@ -57,7 +57,6 @@ public class KlientasService {
         Klientas k = klientasRepository.getOne(klientasId);
         Inventorius i = inventoriusRepository.getOne(inventoriusId);
         k.addInventorius(i);
-        i.addKlientas(k);
         klientasRepository.save(k);
     }
 }

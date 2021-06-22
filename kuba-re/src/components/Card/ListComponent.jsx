@@ -9,15 +9,15 @@ export default class ListComponent extends Component {
     constructor() {
         super();
         this.state = {
-            greetings: [],
+            klientai: [],
         };
     }
 
     componentDidMount() {
         axios
-            .get(`${apiEndpoint}/api/greetings`)
+            .get(`${apiEndpoint}/api/klientai`)
             .then((prod) => {
-                this.setState({greetings: prod});
+                this.setState({klientai: prod});
             })
             .catch((err) => {
                 console.log(err);
@@ -25,7 +25,7 @@ export default class ListComponent extends Component {
     }
 
     render() {
-        const {data} = this.state.greetings;
+        const {data} = this.state.klientai;
         if (!data) {
             return <Spinner/>
         }
