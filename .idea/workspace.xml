@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5daa3160-0e02-4515-965c-e0fcc3d8101f" name="Default Changelist" comment="" />
+    <list default="true" id="5daa3160-0e02-4515-965c-e0fcc3d8101f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kuba-ap/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/java/lt/sveikinimai/greeting/GreetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/kuba-ap/src/main/java/lt/sveikinimai/greeting/GreetingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/java/lt/sveikinimai/place/PlaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/kuba-ap/src/main/java/lt/sveikinimai/place/PlaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/static/js/2.5fa110d6.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/static/js/2.5fa110d6.chunk.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/static/js/2.5fa110d6.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/static/js/main.a4e7be88.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-ap/src/main/resources/public/static/js/main.a4e7be88.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/kuba-re/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/AdminListComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/AdminPanel.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/Administration.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/CardComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/CardDetailsComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/DeleteModal.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/DetailsPage.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/FormComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/ListComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/ListPlacesComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/NavBar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/NoMatch.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/PlaceCardComponent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuba-re/src/components/UnderConstruction.jsx" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +36,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1u6WLBQxvrLgLYAZmpRgzXj4gbI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -20,9 +50,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="5daa3160-0e02-4515-965c-e0fcc3d8101f" name="Default Changelist" comment="" />
@@ -31,7 +63,12 @@
       <option name="presentableId" value="Default" />
       <updated>1623986464499</updated>
       <workItem from="1623986468257" duration="2000" />
+      <workItem from="1624203712158" duration="3000" />
+      <workItem from="1624338568358" duration="22000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

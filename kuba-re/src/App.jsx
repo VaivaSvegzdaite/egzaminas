@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import ListComponent from './components/ListComponent';
-import AdminPanel from './components/AdminPanel';
-import Administration from './components/Administration';
+import ListComponent from './components/Card/ListComponent';
+import AdminPanel from './components/Admin/AdminPanel';
+import Administration from './components/Form/Administration';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import NavBar from './components/NavBar';
-import DetailsPage from './components/DetailsPage';
-import NoMatch from "./components/NoMatch";
-import ListPlacesComponent from "./components/ListPlacesComponent";
+import NavBar from './components/Navbar/NavBar';
+import DetailsPage from './components/Card/DetailsPage';
+import NoMatch from "./components/Utils/NoMatch";
+import ListPlacesComponent from "./components/Places/ListPlacesComponent";
 
 export default class App extends Component {
     render() {
-        document.title = 'greetings';
+        document.title = 'SandelioValdymoSistema';
         return (
             <div>
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
